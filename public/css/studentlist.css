@@ -1,0 +1,53 @@
+body {
+    cursor: default;
+}
+.list-title {
+    font-size: 35px;
+    margin-top: 20px;
+    text-align: center;
+}
+.stuList-wrap {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.stuList-table {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.stuList-thead{
+     border-bottom: 3px solid  rgb(54, 144, 172); 
+}
+
+.stuList-th {
+    padding: 5px 14px;
+    font-size: 24px;
+}
+
+.stuList-row {
+    transition: 0.3s;
+    border-bottom: 1px solid  rgb(95, 185, 212);
+}
+.stuList-row:hover {
+    background-color: rgb(138, 208, 248);
+}
+.stuList-row > td {
+    padding: 5px 14px;
+}
+
+.line-row {
+    padding: 4px 6px 4px 4px;
+}
+
+.check {
+    padding: 5px 10px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.checked {
+    color: green;
+}
+.unchecked {
+    color: red;
+}
