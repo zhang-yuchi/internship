@@ -6,9 +6,30 @@ router.get('/login',function(req,res){
 })
 //登录到学生信息页面
 router.get('/student',function(req,res){
+
     res.render('./student/details/details.html')
 })
-
+//第一次填写报告册
+router.get('/student/first',function(req,res){
+    res.render('./student/submit/firstSubmit.html')
+})
+//第二次填写报告册
+router.get('/student/twice',function(req,res){
+    res.render('./student/submit/secSubmit.html')
+})
+//填写鉴定表
+router.get('/student-decision',function(req,res){
+    res.render('./student/decisiontable/decisiontable.html')
+})
+//报告册详情
+router.get('/student/reports-details',function(req,res){
+    res.render('./student/details/checktable/report/report.html')
+})
+//鉴定表详情
+router.get('/student/decision-details',function(req,res){
+    res.render('./student/details/checktable/decision/decision.html')
+})
+//---------------------------------------------
 //登录老师学生列表页面
 router.get('/teacher',function(req,res){
     res.render('./teacher/report-stuList/studentlist.html')
@@ -32,7 +53,9 @@ router.get('/teacher-decision',function(req,res){
 
 //注销
 router.get('/logout',function(req,res){
-    res.render('./login/index.html')
+
+    res.redirect('/login')
+
 })
 
 module.exports = router
