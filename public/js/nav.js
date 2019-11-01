@@ -14,7 +14,7 @@ $(function(){
     })
     $('.logout').on("click",()=>{
         alert("注销成功")
-        window.location.href = "../login/index/index.html"
+        window.location.href = "/logout"
     })
     
 })

@@ -1,12 +1,12 @@
 $(()=>{
     $('.stu-nav').click(function(){
-        window.location.href = 'studentlist.html'
+        window.location.href = '/teacher'
     })
     $('.decision-nav').click(function(){
-        window.location.href = 'decision-table.html'
+        window.location.href = '/teacher-decisionlist'
     })
     $('.rep-nav').click(function(){
-        window.location.href = 'report-table.html'
+        window.location.href = '/teacher-reportlist'
     })
     $('.return').click(function(){
         window.history.back();
@@ -14,6 +14,6 @@ $(()=>{
     })
     $('.logout').on("click",()=>{
         alert("注销成功")
-        window.location.href = "../../login/index/index.html"
+        window.location.href = "/logout"
     })
 })

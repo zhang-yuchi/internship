@@ -11,20 +11,11 @@ window.onload = function(){
         }
         switch (useridentity){
             case 1:
-                window.location.href = "../../student/details/details.html";
+                window.location.href = "/student";
                 break;
             case 2:
-                window.location.href = "../../teacher/report-stuList/studentlist.html";
+                window.location.href = "/teacher";
                 break;
-            case 3:
-                window.location.href = "../../corp-teacher/studentlist.html";
-                break;
-            case 4:
-                window.location.href = "../../corp/studentlist.html";
-                break; 
-            case 5:
-                window.location.href = "../../college-principal/studentlist.html";
-                break;      
             default:
                 this.alert("请选择身份")
         }
