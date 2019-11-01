@@ -6,7 +6,7 @@ router.get('/login',function(req,res){
 })
 //登录到学生信息页面
 router.get('/student',function(req,res){
-
+    
     res.render('./student/details/details.html')
 })
 //第一次填写报告册
