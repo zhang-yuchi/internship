@@ -3,6 +3,7 @@
         ele.onclick = ()=>{
             window.location.href = url
         }
+        
     };
     function requireByGet(url,resolve,reject){
         fetch(url,{

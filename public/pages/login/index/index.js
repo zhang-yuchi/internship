@@ -12,7 +12,6 @@ window.onload = function(){
             let useraccount = "2019209007"
             let password = "admin"
             let loginType = "Student"
-
        $.ajax({
            type:"POST",
            url:`${config.ip}:${config.port}/user/login`,
