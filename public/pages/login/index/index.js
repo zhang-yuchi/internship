@@ -8,38 +8,44 @@ window.onload = function(){
             if(item.checked){
                 useridentity = item.value
             }}
-
-            let useraccount = "123456"
-            let password = "123"
-            let loginType = "Teacher"
-       $.ajax({
-           type:"POST",
-           url:`${config.ip}:${config.port}/user/login`,
-           data:{
-                account:useraccount,
-                password:password,
-                loginType:loginType
-           },
-           dataType:"json",
-           success:function(data){
-                // 请求成功时
-                console.log(data)
-                if(data.status === 1){
-                    localStorage.setItem("userinfo",data.data.Authorization)
-                    if(useridentity==="Student"){
-                        window.location.href = "/student"
-                    }else if(useridentity==="Teacher"){
-                        window.location.href = "/teacher"
+            // console.log(useridentity)
+            
+            let useraccount = account.value
+            let psw = password.value
+            let loginType = useridentity
+            if(!loginType){
+                alert("请选择身份!")
+            }else{
+                $.ajax({
+                    type:"POST",
+                    url:`${config.ip}:${config.port}/user/login`,
+                    data:{
+                         account:useraccount,
+                         password:psw,
+                         loginType:loginType
+                    },
+                    dataType:"json",
+                    success:function(data){
+                         // 请求成功时
+                         console.log(data)
+                         if(data.status === 1){
+                             localStorage.setItem("userinfo",data.data.Authorization)
+                             if(useridentity==="Student"){
+                                 window.location.href = "/student"
+                             }else if(useridentity==="Teacher"){
+                                 window.location.href = "/teacher"
+                             }
+                             
+                         }else{
+                             alert(data.message)
+                         }
+                    },
+                    error:function(err){
+                        alert('服务器繁忙,请重试!')
                     }
-                    
-                }else{
-                    alert(data.message)
-                }
-           },
-           error:function(err){
-               alert('服务器繁忙,请重试!')
-           }
-       })
+                })
+            }
+       
         
 
         
