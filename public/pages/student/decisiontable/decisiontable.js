@@ -9,7 +9,7 @@ $(()=>{
     })
     $.ajax({
         type:"get",
-            url:`${config.ip}:${config.port}/student/identify`,
+            url:`${config.ip}:${config.port}/student/identifyForm`,
             dataType:"json",
             beforeSend: function(request) {
                 request.setRequestHeader("Authorization", localStorage.getItem("userinfo"));
@@ -24,9 +24,6 @@ $(()=>{
                 alert("服务器繁忙,请重试")
             }
     })
-
-
-
 
     $('.submit').on("click",()=>{
         let pra = practiceContent.value

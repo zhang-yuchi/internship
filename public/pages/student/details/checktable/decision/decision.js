@@ -1,7 +1,7 @@
 $(()=>{
     $.ajax({
         type:"get",
-        url:`${config.ip}:${config.port}/student/identify`,
+        url:`${config.ip}:${config.port}/student/identifyForm`,
         dataType:"json",
         beforeSend: function(request) {
             request.setRequestHeader("Authorization", localStorage.getItem("userinfo"));

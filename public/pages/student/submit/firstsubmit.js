@@ -4,13 +4,16 @@ window.onload = ()=>{
     redirectTo(document.getElementsByClassName('item')[2],"/student-decision");
     $.ajax({
         type:"get",
-            url:`${config.ip}:${config.port}/student/report`,
+            url:`${config.ip}:${config.port}/student/reportForm`,
             dataType:"json",
             beforeSend: function(request) {
                 request.setRequestHeader("Authorization", localStorage.getItem("userinfo"));
             },
             success:(data)=>{
                 const msg = data.data
+                // console.log(msg)
+                starttime.value = msg.stage1GradeDate
+                method.value = msg.stage1GuideWay
                 summary.value = msg.stage1Summary
             },
             error:(err)=>{
@@ -28,12 +31,16 @@ window.onload = ()=>{
     $(".submit").on("click",()=>{
         let stage1_summary = summary.value
         // console.log(stage1_summary)
+        let stage1GuideDate  = starttime.value ;
+        let stage1GuideWay  = method.value ;
         $.ajax({
             type:"post",
             url:`${config.ip}:${config.port}/student/report/stage1`,
             dataType:"json",
             data:{
-                stage1_summary:stage1_summary
+                stage1_summary:stage1_summary,
+                stage1GuideDate:stage1GuideDate,
+                stage1GuideWay:stage1GuideWay
             },
             beforeSend: function(request) {
                 request.setRequestHeader("Authorization", localStorage.getItem("userinfo"));

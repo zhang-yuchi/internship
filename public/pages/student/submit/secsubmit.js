@@ -6,13 +6,16 @@ window.onload = ()=>{
 
     $.ajax({
         type:"get",
-            url:`${config.ip}:${config.port}/student/report`,
+            url:`${config.ip}:${config.port}/student/reportForm`,
             dataType:"json",
             beforeSend: function(request) {
                 request.setRequestHeader("Authorization", localStorage.getItem("userinfo"));
             },
             success:(data)=>{
                 const msg = data.data
+                console.log(msg)
+                starttime.value = msg.stage2GuideDate
+                method.value = msg.stage2GuideWay
                 summary.value = msg.stage2Summary
             },
             error:(err)=>{
@@ -29,13 +32,16 @@ window.onload = ()=>{
 
     $(".submit").on("click",()=>{
         let stage2_summary = summary.value
-        // console.log(stage1_summary)
+        let stage2GuideDate  = starttime.value ;
+        let stage2GuideWay  = method.value ;
         $.ajax({
             type:"post",
             url:`${config.ip}:${config.port}/student/report/stage2`,
             dataType:"json",
             data:{
-                stage2_summary:stage2_summary
+                stage2_summary:stage2_summary,
+                stage2GuideDate:stage2GuideDate,
+                stage2GuideWay:stage2GuideWay
             },
             beforeSend: function(request) {
                 request.setRequestHeader("Authorization", localStorage.getItem("userinfo"));

@@ -40,7 +40,7 @@ $(() => {
     //---------------请求老师信息---------------------
     $.ajax({
         type:"get",
-        url:`${config.ip}:${config.port}/student/teacher`,
+        url:`${config.ip}:${config.port}/student/teacherInfo`,
         dataType:"json",
         beforeSend: function(request) {
             request.setRequestHeader("Authorization", localStorage.getItem("userinfo"));
