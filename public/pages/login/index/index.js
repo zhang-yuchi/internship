@@ -9,9 +9,9 @@ window.onload = function(){
                 useridentity = item.value
             }}
 
-            let useraccount = "2019209007"
-            let password = "admin"
-            let loginType = "Student"
+            let useraccount = "123456"
+            let password = "123"
+            let loginType = "Teacher"
        $.ajax({
            type:"POST",
            url:`${config.ip}:${config.port}/user/login`,
