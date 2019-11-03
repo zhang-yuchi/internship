@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>学生信息</title>
+    <script src="/public/js/utils.js"></script>
     <link rel="stylesheet" href="../../../public/css/reset.css">
     <link rel="stylesheet" href="../../../public/css/studentlist.css">
     <link rel="stylesheet" href="../../../public/css/nav.css">
@@ -46,10 +47,22 @@
                         姓名
                     </th>
                     <th class="stuList-th">
+                        性别
+                    </th>
+                    <th class="stuList-th">
+                        年龄
+                    </th>
+                    <th class="stuList-th">
                         学院
                     </th>
                     <th class="stuList-th">
                         专业
+                    </th>
+                    <th class="stuList-th">
+                        实习企业
+                    </th>
+                    <th class="stuList-th">
+                        校外指导老师工号
                     </th>
                     <th class="stuList-th">
                         联系方式
@@ -63,87 +76,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="stuList-row">
-                    <td>201702767</td>
-                    <td>王坦克</td>
-                    <td>艺术与传媒学院</td>
-                    <td>农业建筑环境与能源工程201704</td>
-                    <td>
-                        <div class="line-row">
-                            Q Q:1665497618
-                        </div>
-                        <div class="line-row">
-                            TEL:15390339325
-                        </div>
-                        <div class="line-row">
-                            微信:15390339325
-                        </div>
-                    </td>
-                    <td>
-                        <button class="check check-report">查看</button>
-                    </td>
-                    <td class="check-td">
-                        <button class="check check-decision">查看</button>
-                    </td>
-                </tr>
-
-                <tr class="stuList-row">
-                    <td>201702767</td>
-                    <td>王坦克</td>
-                    <td>信息工程学院</td>
-                    <td>计算机科学与技术201704</td>
-                    <td>
-                        <div class="line-row">
-                            Q Q:1665497618
-                        </div>
-                        <div class="line-row">
-                            TEL:15390339325
-                        </div>
-                    </td>
-                    <td>
-                        <button class="check  check-report">查看</button>
-
-                    </td>
-                    <td class="check-td">
-                        <button class="check check-decision">查看</button>
-                    </td>
-                </tr>
-
-                <tr class="stuList-row">
-                    <td>201702789</td>
-                    <td>张凤杰</td>
-                    <td>艺术与传媒学院</td>
-                    <td>广告与设计201705</td>
-                    <td>
-                        <div class="line-row">
-                            Q Q:1234567891
-                        </div>
-                        <div class="line-row">
-                            TEL:23456789011
-                        </div>
-                    </td>
-                    <td>
-                        <button class="check check-report">查看</button>
-                    </td>
-                    <td>
-                        <button class="check check-decision">查看</button>
-                    </td>
-                </tr>
+                
             </tbody>
         </table>
     </div>
 </body>
 <script>
-    $(function () {
-        $('.check-report').click(function () {
-            //！！需精确跳转到每个人的页面
-            //
-            window.location.href = '/teacher-report'
-        })
-        $('.check-decision').click(function () {
-            window.location.href = '/teacher-decision'
-        })
-    })
+    
 </script>
 
 </html>

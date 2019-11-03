@@ -21,6 +21,7 @@ body {
 }
 
 .stuList-th {
+    text-align: center;
     padding: 5px 14px;
     font-size: 24px;
 }
@@ -33,7 +34,7 @@ body {
     background-color: rgb(138, 208, 248);
 }
 .stuList-row > td {
-    padding: 5px 14px;
+    padding: 5px 5px;
 }
 
 .line-row {
@@ -50,4 +51,7 @@ body {
 }
 .unchecked {
     color: red;
+}
+.align-center{
+    text-align:center;
 }

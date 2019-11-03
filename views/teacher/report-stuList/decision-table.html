@@ -12,6 +12,9 @@
     <script src="../../../public/js/jquery.js"></script>
     <!-- <script src="../../../public/js/nav.js"></script> -->
     <script src="public/pages/teacher/js/public.js"></script>
+    <script src="/public/js/config.js"></script>
+    <script src="/public/js/utils.js"></script>
+    <script src="/public/pages/teacher/report-stuList/decision-table.js"></script>
 </head>
 <body>
     <div class="nav">
@@ -46,7 +49,7 @@
                         学院
                     </th>
                     <th class="stuList-th">
-                        班级
+                        专业
                     </th>
                     <th class="stuList-th">
                         联系方式
@@ -61,64 +64,7 @@
             </thead>
 
             <tbody>
-                <tr class="stuList-row">
-                    <td>
-                        201702767
-                    </td>
-                    <td>
-                        王坦克
-                    </td>
-                    <td>
-                        信息工程学院
-                    </td>
-                    <td>
-                        计算机科学与技术201704
-                    </td>
-                    <td>
-                        <div class="line-row">
-                            Q Q:1665497618
-                        </div>
-                        <div class="line-row">
-                            TEL:15390339325
-                        </div>
-                    </td>
-                    <td class="unchecked">
-                        <span class="iconfont icon-cuo2"></span>未评价
-                    </td>
-                    <td>
-                        <button class="check check-decision">评价</button>
-                    </td>
-                </tr>
-
-
-                <tr class="stuList-row">
-                    <td>
-                        201702767
-                    </td>
-                    <td>
-                        王坦克
-                    </td>
-                    <td>
-                        信息工程学院
-                    </td>
-                    <td>
-                        计算机科学与技术201704
-                    </td>
-                    <td>
-                        <div class="line-row">
-                            Q Q:1665497618
-                        </div>
-                        <div class="line-row">
-                            TEL:15390339325
-                        </div>
-                    </td>
-                    <td class="checked">
-                        <span class="iconfont icon-dui3"></span>已评价
-                    </td>
-                    <td>
-                        <button class="check check-decision">评价</button>
-                    </td>
-                </tr>
+                
             </tbody>
 
         </table>
@@ -127,10 +73,29 @@
 </body>
 <script>
     $(function () {
-        $('.check-decision').click(function () {
-            //精确到个人
-            //
-            window.location.href = '/teacher-decision'
+        $('body').delegate(".check-decision","click",(e)=>{
+            // console.log(222)
+            let that = e.currentTarget
+            let stuNo = that.dataset.id
+            console.log(stuNo)
+            $.ajax({
+                type:"GET",
+                url:`${config.ip}:${config.port}/teacher/student/identify/${stuNo}`,
+                dataType:"json",
+                beforeSend: function(request) {
+                    request.setRequestHeader("Authorization", localStorage.getItem("userinfo"));
+                },
+                success(data){
+                   console.log(data)
+                   console.log(`${config.ip}:${config.port}/teacher/student/identify/${stuNo}`)
+                   if(data.status===1){
+                        saveLocalStorage("std-decision-entity",data.data)
+                        window.location.href = "/teacher-decision"
+                   }else{
+                       alert("请求失败")
+                   }
+                }
+            })
         })
 
     })
