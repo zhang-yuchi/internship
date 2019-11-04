@@ -1,4 +1,5 @@
 $(()=>{
+    
     $.ajax({
         type:"GET",
         url:`${config.ip}:${config.port}/teacher/students`,
@@ -9,6 +10,7 @@ $(()=>{
         success(data){
             let students = data.data
             let template = ``
+            console.log(data)
             for(let item of students){
                 let std = `<tr class="stuList-row">
                 <td>
