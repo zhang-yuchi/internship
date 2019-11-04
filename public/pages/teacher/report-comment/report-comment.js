@@ -92,22 +92,29 @@ $(()=>{
             id:stuinfo.id,
             stuNo:stuinfo.stuNo,
             stage1Comment:stage1Comment.value,
-            stage1Date:stage1Date.value,
+            // stage1Date:stage1Date.value,
             stage1Grade:stage1Grade.value,
-            stage1GradeDate:stage1GradeDate.value,
+            // stage1GradeDate:stage1GradeDate.value,
             stage2Comment:stage2Comment.value,
-            stage2Date:stage2Date.value,
+            // stage2Date:stage2Date.value,
             stage2Grade:stage2Grade.value,
-            stage2GradeDate:stage2GradeDate.value,
+            // stage2GradeDate:stage2GradeDate.value,
             totalGrade:totalGrade.value,
             totalScore:totalScore.value,
-            stage1Summary:stuinfo.stage1Summary,
-            stage2Summary:stuinfo.stage2Summary,
-            stage2GuideDate:stuinfo.stage2GuideDate,
-            stage1GuideDate:stuinfo.stage1GuideDate,
-            stage2GuideWay:stuinfo.stage2GuideWay,
-            stage1GuideWay:stuinfo.stage1GuideWay,
         }
+        if(stage1Date.value){
+            options.stage1Date = stage1Date.value
+        }
+        if(stage1GradeDate.value){
+            options.stage1GradeDate = stage1GradeDate.value
+        }
+        if(stage2Date.value){
+            options.stage2Date = stage2Date.value
+        }
+        if(stage2GradeDate.value){
+            options.stage2GradeDate = stage2GradeDate.value
+        }
+
         $.ajax({
             type:"POST",
             url:`${config.ip}:${config.port}/teacher/student/reportForm`,

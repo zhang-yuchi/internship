@@ -47,9 +47,11 @@ body {
     cursor: pointer;
 }
 .checked {
+    text-align: center;
     color: green;
 }
 .unchecked {
+    text-align: center;
     color: red;
 }
 .align-center{

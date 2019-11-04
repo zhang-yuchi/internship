@@ -31,9 +31,10 @@ $(()=>{
                         TEL: ${item.phone}
                     </div>
                 </td>
-                <td class="unchecked">
-                    <span class="iconfont icon-cuo2"></span>未评价
-                </td>
+                <td class=${item.reportFlag?"checked":"unchecked"}>
+                    
+                <span class="iconfont ${item.reportFlag?"icon-dui3":"icon-cuo2"}"></span>${item.reportFlag?"已完全评价":"未完全评价"}
+            </td>
                 <td class="align-center">
                     <button class="check check-decision" data-id="${item.stuNo}">评价</button>
                 </td>
