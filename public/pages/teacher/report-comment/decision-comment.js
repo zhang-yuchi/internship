@@ -49,28 +49,29 @@ $(()=>{
             $(".person-info").html(template)
             // let temp_time = stuinfo
             // console.log(temp_time)
+            console.log(stuinfo)
             //实习单位指导教师评语
             corpTeacherOpinion.value = stuinfo.corpTeacherOpinion
             //实习单位指导教师实习成绩
             corpTeacherScore.value = stuinfo.corpTeacherScore?stuinfo.corpTeacherScore:"优秀"
             //实习单位指导教师实习成绩时间
-            CTODate.value = stuinfo.CTODate?stuinfo.CTODate:null
+            CTODate.value = stuinfo.ctodate?stuinfo.ctodate:null
             //实习单位审核意见
             corpOpinion.value = stuinfo.corpOpinion
             //实习单位审核意见时间
-            CODate.value = stuinfo.CODate?stuinfo.CODate:null
+            CODate.value = stuinfo.codate?stuinfo.codate:null
             //所在学院指导老师成绩评定
             teacherGrade.value = stuinfo.teacherGrade
             //所在学院指导老师成绩评定时间
-            TGDate.value = stuinfo.TGDate?stuinfo.TGDate:null
+            TGDate.value = stuinfo.tgdate?stuinfo.tgdate:null
             //综合实习成绩评定
             comprehsvGrade.value = stuinfo.comprehsvGrade
             //综合实习成绩评定时间
-            CGDate.value = stuinfo.CGDate?stuinfo.CGDate:null
+            CGDate.value = stuinfo.cgdate?stuinfo.cgdate:null
             //所在学院实习领导小组意见
             collegePrincipalOpinion.value = stuinfo.collegePrincipalOpinion
             //所在学院实习领导小组意见时间
-            CPODate.value = stuinfo.CPODate?stuinfo.CPODate:null
+            CPODate.value = stuinfo.cpodate?stuinfo.cpodate:null
         }
     })
 
@@ -80,17 +81,34 @@ $(()=>{
             stuNo:stuinfo.stuNo,
             corpTeacherOpinion:corpTeacherOpinion.value,
             corpTeacherScore:corpTeacherScore.value,
-            CTODate:CTODate.value,
+            // CTODate:CTODate.value,
             corpOpinion:corpOpinion.value,
-            CODate:CODate.value,
+            // CODate:CODate.value,
             teacherGrade:teacherGrade.value,
-            TGDate:TGDate.value,
+            // TGDate:TGDate.value,
             comprehsvGrade:comprehsvGrade.value,
-            CGDate:CGDate.value,
+            // CGDate:CGDate.value,
             collegePrincipalOpinion:collegePrincipalOpinion.value,
-            CPODate:CPODate.value,
+            // CPODate:CPODate.value,
             id:stuinfo.id
         }
+        console.log(CTODate.value)
+        if(CTODate.value){
+            options.CTODate = CTODate.value
+        }
+        if(CODate.value){
+            options.CODate = CODate.value
+        }
+        if(TGDate.value){
+            options.TGDate = TGDate.value
+        }
+        if(CGDate.value){
+            options.CGDate = CGDate.value
+        }
+        if(CPODate.value){
+            options.CPODate = CPODate.value
+        }
+        console.log(options)
         $.ajax({
             type:"POST",
             url:`${config.ip}:${config.port}/teacher/student/identifyForm`,
