@@ -25,9 +25,13 @@ input[type="text"]{
 }
 input[type="date"]{
     font-size: 18px;
-    border-radius: 5px;
+    background-color: white;
+    /* border-radius: 5px; */
     border: 1px solid #cdc9c9;
     margin-bottom: 5px;
+}
+select{
+    background-color: white;
 }
 textarea{
     margin-bottom: 10px;
