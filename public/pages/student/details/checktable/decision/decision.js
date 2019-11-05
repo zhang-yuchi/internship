@@ -4,10 +4,10 @@ $(()=>{
         url:`${config.ip}:${config.port}/student/identifyForm`,
         dataType:"json",
         beforeSend: function(request) {
-            request.setRequestHeader("Authorization", localStorage.getItem("userinfo"));
+            request.setRequestHeader("Authorization", sessionStorage.getItem("userinfo"));
         },
         success:function(data){
-            console.log(data)
+            // console.log(data)
             
             let msg = data.data
             let template = `<div class="msg-block">

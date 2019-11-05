@@ -4,7 +4,7 @@ $(()=>{
         url:`${config.ip}:${config.port}/student/reportForm`,
         dataType:"json",
         beforeSend: function(request) {
-            request.setRequestHeader("Authorization", localStorage.getItem("userinfo"));
+            request.setRequestHeader("Authorization", sessionStorage.getItem("userinfo"));
         },
         success:(data)=>{
             console.log(data.data)

@@ -4,7 +4,7 @@ $(()=>{
     redirectTo(document.getElementsByClassName("item")[1].getElementsByTagName("li")[1],"/student/twice")
     $('.logout').on("click",()=>{
         alert("注销成功")
-        localStorage.setItem("userinfo","")
+        sessionStorage.setItem("userinfo","")
         window.location.href = "/logout"
     })
     $.ajax({
@@ -12,10 +12,10 @@ $(()=>{
             url:`${config.ip}:${config.port}/student/identifyForm`,
             dataType:"json",
             beforeSend: function(request) {
-                request.setRequestHeader("Authorization", localStorage.getItem("userinfo"));
+                request.setRequestHeader("Authorization", sessionStorage.getItem("userinfo"));
             },
             success:(data)=>{
-                console.log(data)
+                // console.log(data)
                 const msg = data.data
                 practiceContent.value = msg.sxContent
                 selfSummary.value = msg.selfSummary
@@ -37,7 +37,7 @@ $(()=>{
                 selfSummary:summary
             },
             beforeSend: function(request) {
-                request.setRequestHeader("Authorization", localStorage.getItem("userinfo"));
+                request.setRequestHeader("Authorization", sessionStorage.getItem("userinfo"));
             },
             success:function(){
                 alert("提交成功!")

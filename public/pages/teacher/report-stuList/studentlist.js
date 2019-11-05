@@ -63,7 +63,7 @@ $(()=>{
                 url:`${config.ip}:${config.port}/teacher/student/report/${stuNo}`,
                 dataType:"json",
                 beforeSend: function(request) {
-                    request.setRequestHeader("Authorization", localStorage.getItem("userinfo"));
+                    request.setRequestHeader("Authorization", sessionStorage.getItem("userinfo"));
                 },
                 success(data){
                     if(data.status===1){
@@ -85,7 +85,7 @@ $(()=>{
                 url:`${config.ip}:${config.port}/teacher/student/identify/${stuNo}`,
                 dataType:"json",
                 beforeSend: function(request) {
-                    request.setRequestHeader("Authorization", localStorage.getItem("userinfo"));
+                    request.setRequestHeader("Authorization", sessionStorage.getItem("userinfo"));
                 },
                 success(data){
                    console.log(data)

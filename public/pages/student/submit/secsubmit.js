@@ -9,11 +9,11 @@ window.onload = ()=>{
             url:`${config.ip}:${config.port}/student/reportForm`,
             dataType:"json",
             beforeSend: function(request) {
-                request.setRequestHeader("Authorization", localStorage.getItem("userinfo"));
+                request.setRequestHeader("Authorization", sessionStorage.getItem("userinfo"));
             },
             success:(data)=>{
                 const msg = data.data
-                console.log(msg)
+                // console.log(msg)
                 starttime.value = msg.stage2GuideDate
                 method.value = msg.stage2GuideWay
                 summary.value = msg.stage2Summary
@@ -26,7 +26,7 @@ window.onload = ()=>{
 
     $('.logout').on("click",()=>{
         alert("注销成功")
-        localStorage.setItem("userinfo","")
+        sessionStorage.setItem("userinfo","")
         window.location.href = "/logout"
     })
 
@@ -44,7 +44,7 @@ window.onload = ()=>{
                 stage2GuideWay:stage2GuideWay
             },
             beforeSend: function(request) {
-                request.setRequestHeader("Authorization", localStorage.getItem("userinfo"));
+                request.setRequestHeader("Authorization", sessionStorage.getItem("userinfo"));
             },
             success:(data)=>{
                 alert("提交成功!")

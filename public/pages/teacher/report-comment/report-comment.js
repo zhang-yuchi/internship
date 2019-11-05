@@ -8,7 +8,7 @@ $(()=>{
         url:`${config.ip}:${config.port}/teacher/student/${stuNo}`,
         dataType:"json",
         beforeSend: function(request) {
-            request.setRequestHeader("Authorization", localStorage.getItem("userinfo"));
+            request.setRequestHeader("Authorization", sessionStorage.getItem("userinfo"));
         },
         success(data){
             let msg = data.data
@@ -119,7 +119,7 @@ $(()=>{
             type:"POST",
             url:`${config.ip}:${config.port}/teacher/student/reportForm`,
             beforeSend: function(request) {
-                request.setRequestHeader("Authorization", localStorage.getItem("userinfo"));
+                request.setRequestHeader("Authorization", sessionStorage.getItem("userinfo"));
             },
             data:options,
             success(data){

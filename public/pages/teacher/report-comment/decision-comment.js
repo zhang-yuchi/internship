@@ -8,7 +8,7 @@ $(()=>{
         url:`${config.ip}:${config.port}/teacher/student/${stuNo}`,
         dataType:"json",
         beforeSend: function(request) {
-            request.setRequestHeader("Authorization", localStorage.getItem("userinfo"));
+            request.setRequestHeader("Authorization", sessionStorage.getItem("userinfo"));
         },
         success(data){
             // console.log(data.data)
@@ -49,7 +49,7 @@ $(()=>{
             $(".person-info").html(template)
             // let temp_time = stuinfo
             // console.log(temp_time)
-            console.log(stuinfo)
+            // console.log(stuinfo)
             //实习单位指导教师评语
             corpTeacherOpinion.value = stuinfo.corpTeacherOpinion
             //实习单位指导教师实习成绩
@@ -92,7 +92,7 @@ $(()=>{
             // CPODate:CPODate.value,
             id:stuinfo.id
         }
-        console.log(CTODate.value)
+        // console.log(CTODate.value)
         if(CTODate.value){
             options.CTODate = CTODate.value
         }
@@ -113,7 +113,7 @@ $(()=>{
             type:"POST",
             url:`${config.ip}:${config.port}/teacher/student/identifyForm`,
             beforeSend: function(request) {
-                request.setRequestHeader("Authorization", localStorage.getItem("userinfo"));
+                request.setRequestHeader("Authorization", sessionStorage.getItem("userinfo"));
             },
             data:options,
             success(data){

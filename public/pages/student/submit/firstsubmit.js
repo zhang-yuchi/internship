@@ -7,7 +7,7 @@ window.onload = ()=>{
             url:`${config.ip}:${config.port}/student/reportForm`,
             dataType:"json",
             beforeSend: function(request) {
-                request.setRequestHeader("Authorization", localStorage.getItem("userinfo"));
+                request.setRequestHeader("Authorization", sessionStorage.getItem("userinfo"));
             },
             success:(data)=>{
                 const msg = data.data
@@ -23,7 +23,7 @@ window.onload = ()=>{
 
     $('.logout').on("click",()=>{
         alert("注销成功")
-        localStorage.setItem("userinfo","")
+        sessionStorage.setItem("userinfo","")
         window.location.href = "/logout"
     })
 
@@ -43,7 +43,7 @@ window.onload = ()=>{
                 stage1GuideWay:stage1GuideWay
             },
             beforeSend: function(request) {
-                request.setRequestHeader("Authorization", localStorage.getItem("userinfo"));
+                request.setRequestHeader("Authorization", sessionStorage.getItem("userinfo"));
             },
             success:(data)=>{
                 alert("提交成功!")

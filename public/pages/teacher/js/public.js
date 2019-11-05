@@ -14,6 +14,7 @@ $(()=>{
     })
     $('.logout').on("click",()=>{
         alert("注销成功")
+        sessionStorage.setItem("userinfo","")
         window.location.href = "/logout"
     })
 })

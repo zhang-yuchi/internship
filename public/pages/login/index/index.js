@@ -27,9 +27,11 @@ window.onload = function(){
                     dataType:"json",
                     success:function(data){
                          // 请求成功时
-                         console.log(data)
+                        //  console.log(data)
+                        // location.sessionStorage.setItem("test",1)
+                        // sessionStorage.setItem("test",1)
                          if(data.status === 1){
-                             localStorage.setItem("userinfo",data.data.Authorization)
+                             sessionStorage.setItem("userinfo",data.data.Authorization)
                              if(useridentity==="Student"){
                                  window.location.href = "/student"
                              }else if(useridentity==="Teacher"){

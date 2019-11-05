@@ -4,7 +4,7 @@ $(()=>{
         url:`${config.ip}:${config.port}/teacher/students`,
         dataType:"json",
         beforeSend: function(request) {
-            request.setRequestHeader("Authorization", localStorage.getItem("userinfo"));
+            request.setRequestHeader("Authorization", sessionStorage.getItem("userinfo"));
         },
         success(data){
             let students = data.data
@@ -31,9 +31,9 @@ $(()=>{
                         TEL: ${item.phone}
                     </div>
                 </td>
-                <td class=${item.reportFlag?"checked":"unchecked"}>
+                <td class=${item.identifyFlag?"checked":"unchecked"}>
                     
-                <span class="iconfont ${item.reportFlag?"icon-dui3":"icon-cuo2"}"></span>${item.reportFlag?"已完全评价":"未完全评价"}
+                <span class="iconfont ${item.identifyFlag?"icon-dui3":"icon-cuo2"}"></span>${item.identifyFlag?"已完全评价":"未完全评价"}
             </td>
                 <td class="align-center">
                     <button class="check check-decision" data-id="${item.stuNo}">评价</button>
