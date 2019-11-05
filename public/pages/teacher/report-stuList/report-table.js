@@ -10,7 +10,7 @@ $(()=>{
         success(data){
             let students = data.data
             let template = ``
-            console.log(data)
+            // console.log(data)
             for(let item of students){
                 let std = `<tr class="stuList-row">
                 <td>

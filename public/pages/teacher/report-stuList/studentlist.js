@@ -11,7 +11,7 @@ $(()=>{
             let listDom = ``
 
             for(let item of stdList){
-                console.log(item)
+                // console.log(item)
                 let template = `<tr class="stuList-row">
                 <td class="align-center">${item.stuNo}</td>
                 <td class="align-center">${item.name}</td>
@@ -88,7 +88,7 @@ $(()=>{
                     request.setRequestHeader("Authorization", sessionStorage.getItem("userinfo"));
                 },
                 success(data){
-                   console.log(data)
+                //    console.log(data)
                    if(data.status===1){
                         saveLocalStorage("std-decision-entity",data.data)
                         window.location.href = "/teacher-decision"
