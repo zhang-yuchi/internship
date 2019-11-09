@@ -39,7 +39,26 @@
             
             
     }
+    function bindValue(options,ele){
+        
+        if(ele){
+            // console.log(ele.id)
+            if(!ele.value){
+                options[ele.id] = ""
+                return
+            }
+            options[ele.id] =ele.value
+        }
+        return ;
+    }
+    function bindTime(options,time,value){
+        if(time.value){
+            options[time.id] = value.value
+        }
+    }
     //--------------------------------
+    window.bindTime = bindTime
+    window.bindValue = bindValue
     window.redirectTo = redirectTo
     window.requireByGet = requireByGet
     window.requireByPost = requireByPost
