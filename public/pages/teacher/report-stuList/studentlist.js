@@ -8,6 +8,10 @@ $(()=>{
         },
         success(data){
             let stdList = data.data
+            if(!stdList){
+                $('.stuList-wrap').append(`<div class="showtoast">暂无学生信息!</div>`)
+                return 
+            }
             console.log(data)
             let listDom = ``
 
@@ -33,13 +37,13 @@ $(()=>{
                 </td>
                 <td>
                     <div class="line-row">
-                        Q Q:${item.qq}
+                        Q Q:${item.qq?item.qq:"暂无"}
                     </div>
                     <div class="line-row">
-                        电话:${item.phone}
+                        电话:${item.phone?item.phone:"暂无"}
                     </div>
                     <div class="line-row">
-                        微信:${item.wechat}
+                        微信:${item.wechat?item.wechat:"暂无"}
                     </div>
                 </td>
                 <td>

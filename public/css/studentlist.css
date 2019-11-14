@@ -35,6 +35,7 @@ body {
 }
 .stuList-row > td {
     padding: 5px 5px;
+    text-align: center;
 }
 
 .line-row {
@@ -56,4 +57,11 @@ body {
 }
 .align-center{
     text-align:center;
+}
+.showtoast{
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 50px;
+    color: #ff8600;
 }

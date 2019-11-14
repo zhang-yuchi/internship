@@ -25,8 +25,8 @@ $(()=>{
             <div class="content-name">学号：<span id="" class="black">${person_info.stuNo}</span></div>
         </div>
         <div class="content flexbox">
-                <div class="content-name">实习单位：<span id="" class="black">${person_info.corpName}</span></div>
-                <div class="content-name">实习岗位：<span id="" class="black">${person_info.corpPosition}</span></div>
+                <div class="content-name">实习单位：<span id="" class="black">${person_info.corpName?person_info.corpName:"暂无"}</span></div>
+                <div class="content-name">实习岗位：<span id="" class="black">${person_info.corpPosition?person_info.corpPosition:"暂无"}</span></div>
             </div>
 
             <div class="msg-block">

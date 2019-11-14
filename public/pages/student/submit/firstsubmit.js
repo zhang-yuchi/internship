@@ -10,9 +10,10 @@ window.onload = ()=>{
                 request.setRequestHeader("Authorization", sessionStorage.getItem("userinfo"));
             },
             success:(data)=>{
-                console.log(data)
+                // console.log(data)
                 const msg = data.data
                 console.log(msg)
+                gmt_start.value = msg.gmtStart
                 starttime.value = msg.stage1GradeDate
                 method.value = msg.stage1GuideWay
                 summary.value = msg.stage1Summary
@@ -37,17 +38,20 @@ window.onload = ()=>{
                 })
 
                 $(".submit").on("click",()=>{
-                    let stage2_summary = summary.value
-                    let stage2GuideDate  = starttime.value ;
-                    let stage2GuideWay  = method.value ;
+                    let stage1Summary = summary.value
+                    let stage1GuideDate  = starttime.value ;
+                    let stage1GuideWay  = method.value ;
+                    let gmtStart = gmt_start.value;
+                    console.log(stage1Summary+" "+stage1GuideDate)
                     $.ajax({
                         type:"post",
                         url:`${config.ip}:${config.port}/student/report/stage2`,
                         dataType:"json",
                         data:{
-                            stage2_summary:stage2_summary,
-                            stage2GuideDate:stage2GuideDate,
-                            stage2GuideWay:stage2GuideWay
+                            gmtStart:gmtStart,
+                            stage1Summary:stage1Summary,
+                            stage1GuideDate:stage1GuideDate,
+                            stage1GuideWay:stage1GuideWay
                         },
                         beforeSend: function(request) {
                             request.setRequestHeader("Authorization", sessionStorage.getItem("userinfo"));

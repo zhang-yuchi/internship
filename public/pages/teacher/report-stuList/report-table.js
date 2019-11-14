@@ -9,6 +9,10 @@ $(()=>{
         },
         success(data){
             let students = data.data
+            if(!students){
+                $('.stuList-wrap').append(`<div class="showtoast">暂无学生信息!</div>`)
+                return 
+            }
             let template = ``
             // console.log(data)
             for(let item of students){
@@ -27,10 +31,10 @@ $(()=>{
                 </td>
                 <td>
                     <div class="line-row">
-                        Q Q:${item.qq}
+                        Q Q:${item.qq?item.qq:"暂无"}
                     </div>
                     <div class="line-row">
-                        TEL:${item.phone}
+                        TEL:${item.phone?item.phone:"暂无"}
                     </div>
                 </td>
                 <td class=${item.reportFlag?"checked":"unchecked"}>
