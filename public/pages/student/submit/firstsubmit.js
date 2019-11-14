@@ -10,8 +10,9 @@ window.onload = ()=>{
                 request.setRequestHeader("Authorization", sessionStorage.getItem("userinfo"));
             },
             success:(data)=>{
+                console.log(data)
                 const msg = data.data
-                // console.log(msg)
+                console.log(msg)
                 starttime.value = msg.stage1GradeDate
                 method.value = msg.stage1GuideWay
                 summary.value = msg.stage1Summary
@@ -29,7 +30,7 @@ window.onload = ()=>{
             request.setRequestHeader("Authorization", sessionStorage.getItem("userinfo"));
         },
         success(data){
-            console.log(data.data.isReportStage1Open)
+            // console.log(data.data.isReportStage1Open)
             if(data.data.isReportStage1Open){
                 $('.showToast').css({
                     display:"none"
