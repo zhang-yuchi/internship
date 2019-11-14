@@ -12,7 +12,7 @@ window.onload = ()=>{
             success:(data)=>{
                 // console.log(data)
                 const msg = data.data
-                console.log(msg)
+                // console.log(msg)
                 gmt_start.value = msg.gmtStart
                 starttime.value = msg.stage1GuideDate
                 method.value = msg.stage1GuideWay

@@ -36,7 +36,7 @@ window.onload = ()=>{
                 $('.showToast').css({
                     display:"none"
                 })
-
+                
                 $(".submit").on("click",()=>{
                     let stage2_summary = summary.value
                     let stage2GuideDate  = starttime.value ;
