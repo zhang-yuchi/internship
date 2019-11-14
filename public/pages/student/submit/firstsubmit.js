@@ -14,7 +14,7 @@ window.onload = ()=>{
                 const msg = data.data
                 console.log(msg)
                 gmt_start.value = msg.gmtStart
-                starttime.value = msg.stage1GradeDate
+                starttime.value = msg.stage1GuideDate
                 method.value = msg.stage1GuideWay
                 summary.value = msg.stage1Summary
             },
@@ -40,12 +40,14 @@ window.onload = ()=>{
                 $(".submit").on("click",()=>{
                     let stage1Summary = summary.value
                     let stage1GuideDate  = starttime.value ;
+                    // console.log(typeof stage1GuideDate)
                     let stage1GuideWay  = method.value ;
                     let gmtStart = gmt_start.value;
-                    console.log(stage1Summary+" "+stage1GuideDate)
+                    // console.log(stage1Summary+" "+stage1GuideDate)
+                    console.log(stage1GuideDate)
                     $.ajax({
                         type:"post",
-                        url:`${config.ip}:${config.port}/student/report/stage2`,
+                        url:`${config.ip}:${config.port}/student/report/stage1`,
                         dataType:"json",
                         data:{
                             gmtStart:gmtStart,

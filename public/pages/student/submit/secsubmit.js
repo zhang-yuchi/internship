@@ -42,7 +42,7 @@ window.onload = ()=>{
                     let stage2GuideDate  = starttime.value ;
                     let stage2GuideWay  = method.value ;
                     // let gmtStart = 
-                    let gmtEnd = gmt_end.value;
+                    let gmtEnd = gmt_end.value?gmt_end.value:"";
                     $.ajax({
                         type:"post",
                         url:`${config.ip}:${config.port}/student/report/stage2`,
