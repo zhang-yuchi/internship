@@ -4,7 +4,7 @@ $(function(){
     // console.log(111)
     // console.log(IEVersion())
     let useridentity = null;
-    console.log(BrowserType())
+    // console.log(BrowserType())
     if(BrowserType()!=='Edge'&&BrowserType()!=='Chrome'){
         alert("您现在使用的浏览器不完全兼容此网页,请更换至谷歌浏览器或Edge浏览器")
         return
