@@ -18,11 +18,24 @@ window.onload = ()=>{
                 starttime.value = msg.stage2GuideDate
                 method.value = msg.stage2GuideWay
                 summary.value = msg.stage2Summary
+
+                $('.limit').each((index,item)=>{
+
+                    $(item).find('.summary-num').html($(item).siblings().get(1).value.length)
+
+                })
             },
             error:(err)=>{
                 alert("服务器繁忙,请重试")
             }
     })
+
+    $('#summary').on("input",()=>{
+        // console.log(111)
+        $('.summary-num').html($('#summary').get(0).value.length)
+        // $(this).find('.summary-num').html($(this).siblings().get(1).value.length)
+    })
+
     $.ajax({
         type:"get",
         url:`${config.ip}:${config.port}/user/reportStage`,
@@ -43,6 +56,11 @@ window.onload = ()=>{
                     let stage2GuideWay  = method.value ;
                     // let gmtStart = 
                     let gmtEnd = gmt_end.value?gmt_end.value:"";
+                    // console.log(summary.value.length)
+                    if(summary.value.length>1050){
+                        alert("字数超过限制,请更改后提交!")
+                        return
+                    }
                     $.ajax({
                         type:"post",
                         url:`${config.ip}:${config.port}/student/report/stage2`,
@@ -68,6 +86,8 @@ window.onload = ()=>{
         },
         error(){}
     })
+
+
 
     $('.logout').on("click",()=>{
         alert("注销成功")

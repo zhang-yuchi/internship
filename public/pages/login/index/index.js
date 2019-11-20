@@ -1,8 +1,14 @@
 $(function(){
     document.onselectstart = function(){return false}
-    let radio = document.getElementsByName("identity")
+    var radio = document.getElementsByName("identity")
+    // console.log(111)
+    // console.log(IEVersion())
     let useridentity = null;
-    
+    console.log(BrowserType())
+    if(BrowserType()!=='Edge'&&BrowserType()!=='Chrome'){
+        alert("您现在使用的浏览器不完全兼容此网页,请更换至谷歌浏览器或Edge浏览器")
+        return
+    }
     document.getElementsByClassName("land-btn")[0].onclick = userCheck
     
 
