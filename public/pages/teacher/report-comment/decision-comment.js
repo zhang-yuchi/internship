@@ -3,6 +3,7 @@ $(()=>{
     let stuinfo = getLocalStorage("std-decision-entity")
     let stuNo = stuinfo.stuNo
     // console.log(stuNo)
+    console.log(stuinfo)
     $.ajax({
         type:"GET",
         url:`${config.ip}:${config.port}/teacher/student/${stuNo}`,
@@ -53,7 +54,7 @@ $(()=>{
             //实习单位指导教师评语
             corpTeacherOpinion.value = stuinfo.corpTeacherOpinion
             //实习单位指导教师实习成绩
-            corpTeacherScore.value = stuinfo.corpTeacherScore?stuinfo.corpTeacherScore:"优秀"
+            corpTeacherGrade.value = stuinfo.corpTeacherGrade?stuinfo.corpTeacherGrade:"优秀"
             //实习单位指导教师实习成绩时间
             CTODate.value = stuinfo.ctodate?stuinfo.ctodate:null
             //实习单位审核意见
@@ -65,9 +66,12 @@ $(()=>{
             //所在学院指导老师成绩评定时间
             TGDate.value = stuinfo.tgdate?stuinfo.tgdate:null
             //综合实习成绩评定
-            comprehsvGrade.value = stuinfo.comprehsvGrade
+            // comprehsvGrade.value = stuinfo.comprehsvGrade
+            // console.log(comprehsvGrade)
+            comprehsvGrade.innerHTML = stuinfo.comprehsvGrade?stuinfo.comprehsvGrade:"暂无成绩"
             //综合实习成绩评定时间
-            CGDate.value = stuinfo.cgdate?stuinfo.cgdate:null
+            CGDate.innerHTML = stuinfo.cgdate?stuinfo.cgdate:"暂无"
+            // CGDate.value = stuinfo.cgdate?stuinfo.cgdate:null
             //所在学院实习领导小组意见
             collegePrincipalOpinion.value = stuinfo.collegePrincipalOpinion
             //所在学院实习领导小组意见时间
@@ -80,7 +84,7 @@ $(()=>{
         let options = {
             stuNo:stuinfo.stuNo,
             corpTeacherOpinion:corpTeacherOpinion.value,
-            corpTeacherScore:corpTeacherScore.value,
+            corpTeacherGrade:corpTeacherGrade.value,
             // CTODate:CTODate.value,
             corpOpinion:corpOpinion.value,
             // CODate:CODate.value,
