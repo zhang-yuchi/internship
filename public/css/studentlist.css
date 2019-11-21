@@ -58,6 +58,14 @@ body {
     padding: 5px 10px;
     margin-left: 10px;
     cursor: pointer;
+
+    outline: none;
+    border: 1px solid #dedede;
+    border-radius: 5px;
+}
+.check:hover {
+    border-color: rgb(146, 209, 212);
+    background-color: rgb(146, 209, 212);
 }
 .checked {
     text-align: center;
