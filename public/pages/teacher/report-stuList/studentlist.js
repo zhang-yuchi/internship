@@ -14,7 +14,7 @@ $(()=>{
                 $('.stuList-wrap').append(`<div class="showtoast">暂无学生信息!</div>`)
                 return 
             }
-            console.log(data)
+            // console.log(data)
             let listDom = ``
 
             for(let item of stdList){
