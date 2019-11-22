@@ -68,6 +68,7 @@ $(()=>{
                 $('.stuList-wrap').append(`<div class="showtoast">暂无学生信息!</div>`)
                 return 
             }
+
             let template = ``
             for(let item of students){
                 let std = `<tr class="stuList-row">
@@ -101,6 +102,7 @@ $(()=>{
             </tr>`
             template+=std
             }
+            // console.log()
             $('tbody').html(template)
             
         }else{
