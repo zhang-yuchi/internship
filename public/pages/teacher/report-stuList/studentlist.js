@@ -49,7 +49,7 @@ $(()=>{
                     </div>
                 </td>
                 <td>
-                    <button class="check check-report" data-id="${item.stuNo}">查看</button>
+                    <button class="check  check-report" data-id="${item.stuNo}">查看</button>
                 </td>
                 <td class="check-td">
                     <button class="check check-decision" data-id="${item.stuNo}">查看</button>
@@ -243,6 +243,9 @@ $(()=>{
             // console.log(searching_stu)
         })
 
-
+        $('.uncheck-btn').on("click",function(){
+            alert("学生还未填写,无法评价!")
+            return
+        })
 
     })

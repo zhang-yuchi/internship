@@ -39,8 +39,13 @@ $(()=>{
                 </td>
                 <td class=${item.reportFlag?"checked":"unchecked"}>
                     
-                    <span class="iconfont ${item.reportFlag?"icon-dui3":"icon-cuo2"}"></span>${item.reportFlag?"已完全评价":"未完全评价"}
-                </td>
+                <span class="iconfont ${item.reportFlag?"icon-dui3":"icon-cuo2"}"></span>${item.reportFlag?"已完全评价":"未完全评价"}
+            </td>
+
+            <td class=${item.reportFlag===2?"checked":item.reportFlag===0?"unchecked":"checking"}>
+                    
+            <span class="iconfont ${item.reportFlag===0?"icon-cuo2":item.reportFlag===1?"icon-cuo2":"icon-dui3"}"></span>${item.reportFlag===0?"还未评价!":item.reportFlag===1?"未评价完":"已评价"}
+        </td>
                 <td class="align-center">
                     <button class="check check-report" data-id="${item.stuNo}">评价</button>
                 </td>
@@ -92,10 +97,16 @@ $(()=>{
                         TEL:${item.phone?item.phone:"暂无"}
                     </div>
                 </td>
+
                 <td class=${item.reportFlag?"checked":"unchecked"}>
                     
                     <span class="iconfont ${item.reportFlag?"icon-dui3":"icon-cuo2"}"></span>${item.reportFlag?"已完全评价":"未完全评价"}
                 </td>
+
+                <td class=${item.reportFlag===2?"checked":item.reportFlag===0?"unchecked":"checking"}>
+                    
+                <span class="iconfont ${item.reportFlag===0?"icon-cuo2":item.reportFlag===1?"icon-cuo2":"icon-dui3"}"></span>${item.reportFlag===0?"还未评价!":item.reportFlag===1?"未评价完":"已评价"}
+            </td>
                 <td class="align-center">
                     <button class="check check-report" data-id="${item.stuNo}">评价</button>
                 </td>
@@ -163,6 +174,10 @@ $(()=>{
                     
                     <span class="iconfont ${item.reportFlag?"icon-dui3":"icon-cuo2"}"></span>${item.reportFlag?"已完全评价":"未完全评价"}
                 </td>
+                <td class=${item.reportFlag===2?"checked":item.reportFlag===0?"unchecked":"checking"}>
+                    
+                <span class="iconfont ${item.reportFlag===0?"icon-cuo2":item.reportFlag===1?"icon-cuo2":"icon-dui3"}"></span>${item.reportFlag===0?"还未评价!":item.reportFlag===1?"未评价完":"已评价"}
+            </td>
                 <td class="align-center">
                     <button class="check check-report" data-id="${item.stuNo}">评价</button>
                 </td>
@@ -175,7 +190,10 @@ $(()=>{
         // console.log(searching_stu)
     })
 
-
+    $('.uncheck-btn').on("click",function(){
+        alert("学生还未填写,无法评价!")
+        return
+    })
 
 
 })

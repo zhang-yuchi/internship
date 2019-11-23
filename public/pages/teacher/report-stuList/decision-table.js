@@ -36,9 +36,15 @@ $(()=>{
                         TEL: ${item.phone?item.phone:"暂无"}
                     </div>
                 </td>
+
                 <td class=${item.identifyFlag?"checked":"unchecked"}>
                     
                 <span class="iconfont ${item.identifyFlag?"icon-dui3":"icon-cuo2"}"></span>${item.identifyFlag?"已完全评价":"未完全评价"}
+            </td>
+
+                <td class=${item.identifyFlag===2?"checked":item.identifyFlag===0?"unchecked":"checking"}>
+                    
+                <span class="iconfont ${item.identifyFlag===0?"icon-cuo2":item.identifyFlag===1?"icon-cuo2":"icon-dui3"}"></span>${item.identifyFlag===0?"还未评价!":item.identifyFlag===1?"未评价完":"已评价"}
             </td>
                 <td class="align-center">
                     <button class="check check-decision" data-id="${item.stuNo}">评价</button>
@@ -95,6 +101,13 @@ $(()=>{
                 <td class=${item.identifyFlag?"checked":"unchecked"}>
                     
                 <span class="iconfont ${item.identifyFlag?"icon-dui3":"icon-cuo2"}"></span>${item.identifyFlag?"已完全评价":"未完全评价"}
+            </td>
+
+            </td>
+
+                <td class=${item.identifyFlag===2?"checked":item.identifyFlag===0?"unchecked":"checking"}>
+                    
+                <span class="iconfont ${item.identifyFlag===0?"icon-cuo2":item.identifyFlag===1?"icon-cuo2":"icon-dui3"}"></span>${item.identifyFlag===0?"还未评价!":item.identifyFlag===1?"未评价完":"已评价"}
             </td>
                 <td class="align-center">
                     <button class="check check-decision" data-id="${item.stuNo}">评价</button>
@@ -162,6 +175,12 @@ $(()=>{
                     
                 <span class="iconfont ${item.identifyFlag?"icon-dui3":"icon-cuo2"}"></span>${item.identifyFlag?"已完全评价":"未完全评价"}
             </td>
+            </td>
+
+                <td class=${item.identifyFlag===2?"checked":item.identifyFlag===0?"unchecked":"checking"}>
+                    
+                <span class="iconfont ${item.identifyFlag===0?"icon-cuo2":item.identifyFlag===1?"icon-cuo2":"icon-dui3"}"></span>${item.identifyFlag===0?"还未评价!":item.identifyFlag===1?"未评价完":"已评价"}
+            </td>
                 <td class="align-center">
                     <button class="check check-decision" data-id="${item.stuNo}">评价</button>
                 </td>
@@ -172,6 +191,12 @@ $(()=>{
         }
         
         // console.log(searching_stu)
+    })
+
+
+    $('.uncheck-btn').on("click",function(){
+        alert("学生还未填写,无法评价!")
+        return
     })
 
 })
