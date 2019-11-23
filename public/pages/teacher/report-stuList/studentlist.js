@@ -14,7 +14,7 @@ $(()=>{
                 $('.stuList-wrap').append(`<div class="showtoast">暂无学生信息!</div>`)
                 return 
             }
-            console.log(data)
+            // console.log(data)
             let listDom = ``
 
             for(let item of stdList){
@@ -48,12 +48,12 @@ $(()=>{
                         微信:${item.wechat?item.wechat:"暂无"}
                     </div>
                 </td>
-                <td>
-                    <button class="check  check-report" data-id="${item.stuNo}">查看</button>
-                </td>
-                <td class="check-td">
-                    <button class="check check-decision" data-id="${item.stuNo}">查看</button>
-                </td>
+                <td class="align-center">
+                        <button class="check ${item.reportFilledFlag===1||item.reportFilledFlag===0?"uncheck-btn":"check-report"}" data-id="${item.stuNo}">评价</button>
+                    </td>
+                    <td class="align-center">
+                        <button class="check ${item.identifyFilledFlag===1||item.identifyFilledFlag===0?"uncheck-btn":".check-decision"}" data-id="${item.stuNo}">评价</button>
+                    </td>
             </tr>`
                 listDom+=template
             }
@@ -155,12 +155,12 @@ $(()=>{
                         微信:${item.wechat?item.wechat:"暂无"}
                     </div>
                 </td>
-                <td>
-                    <button class="check check-report" data-id="${item.stuNo}">查看</button>
-                </td>
-                <td class="check-td">
-                    <button class="check check-decision" data-id="${item.stuNo}">查看</button>
-                </td>
+                <td class="align-center">
+                        <button class="check ${item.reportFilledFlag===1||item.reportFilledFlag===0?"uncheck-btn":"check-report"}" data-id="${item.stuNo}">评价</button>
+                    </td>
+                    <td class="align-center">
+                        <button class="check ${item.identifyFilledFlag===1||item.identifyFilledFlag===0?"uncheck-btn":".check-decision"}" data-id="${item.stuNo}">评价</button>
+                    </td>
             </tr>`
                 listDom+=template
                 }
@@ -229,10 +229,10 @@ $(()=>{
                         </div>
                     </td>
                     <td class="align-center">
-                        <button class="check ${reportFilledFlag===1||reportFilledFlag===0?"uncheck-btn":"check-report"}" data-id="${item.stuNo}">评价</button>
+                        <button class="check ${item.reportFilledFlag===1||item.reportFilledFlag===0?"uncheck-btn":"check-report"}" data-id="${item.stuNo}">评价</button>
                     </td>
                     <td class="align-center">
-                        <button class="check ${identifyFilledFlag===1||identifyFilledFlag===0?"uncheck-btn":".check-decision"}" data-id="${item.stuNo}">评价</button>
+                        <button class="check ${item.identifyFilledFlag===1||item.identifyFilledFlag===0?"uncheck-btn":".check-decision"}" data-id="${item.stuNo}">评价</button>
                     </td>
                 </tr>`
                     listDom+=template
@@ -243,7 +243,7 @@ $(()=>{
             // console.log(searching_stu)
         })
 
-        $('.uncheck-btn').on("click",function(){
+        $('body').delegate(".uncheck-btn","click",function(){
             alert("学生还未填写,无法评价!")
             return
         })
