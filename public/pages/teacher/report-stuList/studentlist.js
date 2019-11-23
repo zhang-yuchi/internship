@@ -228,11 +228,11 @@ $(()=>{
                             微信:${item.wechat?item.wechat:"暂无"}
                         </div>
                     </td>
-                    <td>
-                        <button class="check check-report" data-id="${item.stuNo}">查看</button>
+                    <td class="align-center">
+                        <button class="check ${reportFilledFlag===1||reportFilledFlag===0?"uncheck-btn":"check-report"}" data-id="${item.stuNo}">评价</button>
                     </td>
-                    <td class="check-td">
-                        <button class="check check-decision" data-id="${item.stuNo}">查看</button>
+                    <td class="align-center">
+                        <button class="check ${identifyFilledFlag===1||identifyFilledFlag===0?"uncheck-btn":".check-decision"}" data-id="${item.stuNo}">评价</button>
                     </td>
                 </tr>`
                     listDom+=template
