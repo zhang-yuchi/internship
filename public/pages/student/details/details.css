@@ -131,3 +131,27 @@ body{
     display: flex;
     align-items: center;
 }
+.psw-btn{
+    margin-left: 20px;
+    border: none;
+    background-color: #07C160;
+    color: white;
+    padding: 2px 8px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+input[name="pswchange"]{
+    border-radius: 3px;
+    padding: 2px;
+    border:1px solid #d3d3d3;
+}
+.position-binding{
+    background-color: #aa9be0;
+    border: none;
+    color: white;
+    outline: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-bottom: 30px;
+    border-radius: 10px;
+}

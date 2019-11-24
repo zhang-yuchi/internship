@@ -33,11 +33,14 @@ $(() => {
             <div class="text"><span>实习岗位</span>${std.corpPosition?std.corpPosition:"暂无"}</div>
             <div class="text"><span>实习企业</span>${std.corpName?std.corpName:"暂无"}</div>
             <div class="text"><span>身份证号</span>${std.idCard}</div>
+            <div class="text"><span>修改密码</span><input type="text" name="pswchange" id="pswchange"><button class="psw-btn">修改</button></div>
             <div class="text">${std.college}</div>
             <div class="text"></div>
             <div class="controls"><button>实习报告表</button><button>实习鉴定表</button></div>`
             $('.student-info').html(stdTemplate)
             // console.log(std)
+
+            position.value = std.corpPosition
         },
         error: function (err) {
             console.log(err)
@@ -81,30 +84,19 @@ $(() => {
                     </div>`
                 $(".teacher-info").html(selectTemplate)
             })
-            // let selectTemplate = `<div class="title">导师信息</div>
-            // <div class="selectTeacher">
-            // <div class="tips">请绑定导师:</div>
-            // <div class="select-controls">
-            //         <select name="selectTeacher" id="selectTeacher">
-            //                 <!-- <option value="-1">请选择</option> -->
-            //                 <option value="1">潘勇浩</option>
-            //                 <option value="2">倪铭</option>
-            //                 <option value="3">李源彬</option>
-            //             </select>
-            //             <button class="select-btn">绑定</button>
-            // </div>
 
-            // </div>`
-            // $(".teacher-info").html(selectTemplate)
 
         }
 
 
-
-
-
-
     })
+
+    //------------------请求学生企业-------------------
+    ajaxByGet('/student/student/corp',function(data){
+        console.log(data)
+    })
+    //------------------添加,修改学生企业--------------
+    // ajaxByPost('/')
 
 
     $('body').delegate(".select-btn", "click", () => {
@@ -122,6 +114,24 @@ $(() => {
     $('.logout').on("click", () => {
         alert("注销成功")
         window.location.href = "/logout"
+    })
+    $('.position-binding').on("click",function(){
+        // console.log(111)
+        console.log(position.value)
+        ajaxByPost('/student/student/position',{
+            position:position.value
+        },function(data){
+            alert("绑定成功!")
+            ajaxByGet('/student/student/corp',function(data){
+                console.log(data)
+            })
+        })
+    })
+
+    //--------------进入企业绑定页面-----------------
+    $('.bind-btn').on("click",function(){
+        // console.log(111)
+        window.location.href = "/student/corp-bind"
     })
 
 })
