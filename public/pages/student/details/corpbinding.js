@@ -42,7 +42,7 @@ $(()=>{
                     option.id = id
                 }
                 ajaxByPost('/student/student/corp',option,function(){
-                    alert("提交成功!")
+                    alert("提交成功!请重新登录后查看绑定结果")
                     window.location.href = "/student"
                 })
             },
