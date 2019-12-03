@@ -3,7 +3,9 @@ $(()=>{
     let stuinfo = getLocalStorage("std-decision-entity")
     let stuNo = stuinfo.stuNo
     // console.log(stuNo)
-    console.log(stuinfo)
+    // console.log(stuinfo)
+
+    //第一次渲染学生信息
     $.ajax({
         type:"GET",
         url:`${config.ip}:${config.port}/teacher/student/${stuNo}`,
@@ -43,8 +45,6 @@ $(()=>{
                 <!-- <div class="time"><span class="time-text">时间</span><span class="time-inner">2019/10/24</span></div> -->
             </div>
         </div>
-
-
             `
             // console.log(stuinfo)
             $(".person-info").html(template)
@@ -79,7 +79,7 @@ $(()=>{
         }
     })
 
-
+    //提交
     $(".submit").on("click",function(){
         let options = {
             stuNo:stuinfo.stuNo,

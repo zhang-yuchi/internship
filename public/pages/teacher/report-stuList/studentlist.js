@@ -1,5 +1,7 @@
 $(()=>{
+
     let stdList = {}
+    //初次渲染
     $.ajax({
         type:"GET",
         url:`${config.ip}:${config.port}/teacher/students`,
@@ -52,7 +54,7 @@ $(()=>{
                         <button class="check ${item.reportFilledFlag===1||item.reportFilledFlag===0?"uncheck-btn":"check-report"}" data-id="${item.stuNo}">评价</button>
                     </td>
                     <td class="align-center">
-                        <button class="check ${item.identifyFilledFlag===1||item.identifyFilledFlag===0?"uncheck-btn":".check-decision"}" data-id="${item.stuNo}">评价</button>
+                        <button class="check ${item.identifyFilledFlag===1||item.identifyFilledFlag===0?"uncheck-btn":"check-decision"}" data-id="${item.stuNo}">评价</button>
                     </td>
             </tr>`
                 listDom+=template
@@ -61,11 +63,12 @@ $(()=>{
         }
     })
 //------------------按钮响应---------------------------
-    
+
+        // 报告册填写
         $('body').delegate(".check-report","click",(e)=>{
             let that = e.currentTarget
             let stuNo = that.dataset.id
-            $.ajax({
+            $.ajax({                                            
                 type:"GET",
                 url:`${config.ip}:${config.port}/teacher/student/report/${stuNo}`,
                 dataType:"json",
@@ -83,6 +86,7 @@ $(()=>{
                 }
             })
         })
+        //鉴定表跳转
         $('body').delegate(".check-decision","click",(e)=>{
             // console.log(222)
             let that = e.currentTarget
@@ -159,7 +163,7 @@ $(()=>{
                         <button class="check ${item.reportFilledFlag===1||item.reportFilledFlag===0?"uncheck-btn":"check-report"}" data-id="${item.stuNo}">评价</button>
                     </td>
                     <td class="align-center">
-                        <button class="check ${item.identifyFilledFlag===1||item.identifyFilledFlag===0?"uncheck-btn":".check-decision"}" data-id="${item.stuNo}">评价</button>
+                        <button class="check ${item.identifyFilledFlag===1||item.identifyFilledFlag===0?"uncheck-btn":"check-decision"}" data-id="${item.stuNo}">评价</button>
                     </td>
             </tr>`
                 listDom+=template
@@ -232,7 +236,7 @@ $(()=>{
                         <button class="check ${item.reportFilledFlag===1||item.reportFilledFlag===0?"uncheck-btn":"check-report"}" data-id="${item.stuNo}">评价</button>
                     </td>
                     <td class="align-center">
-                        <button class="check ${item.identifyFilledFlag===1||item.identifyFilledFlag===0?"uncheck-btn":".check-decision"}" data-id="${item.stuNo}">评价</button>
+                        <button class="check ${item.identifyFilledFlag===1||item.identifyFilledFlag===0?"uncheck-btn":"check-decision"}" data-id="${item.stuNo}">评价</button>
                     </td>
                 </tr>`
                     listDom+=template
