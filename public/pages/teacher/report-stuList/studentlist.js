@@ -1,5 +1,6 @@
 $(()=>{
 
+
     let stdList = {}
     //初次渲染
     $.ajax({
@@ -109,14 +110,6 @@ $(()=>{
                 }
             })
         })
-        // $('.check-report').click(function () {
-        //     //！！需精确跳转到每个人的页面
-            
-        //     window.location.href = '/teacher-report'
-        // })
-        // $('.check-decision').click(function () {
-        //     window.location.href = '/teacher-decision'
-        // })
 
         $('.search-input').on("input",function(){
             let searching_stu = []
@@ -246,6 +239,77 @@ $(()=>{
             
             // console.log(searching_stu)
         })
+
+
+
+        //-------------全部/已填/未填 单选框---------------------
+        function xuranStuList(number){
+            //渲染原来页面
+            $('.showtoast').remove()
+            if(!stdList){
+                $('.stuList-wrap').append(`<div class="showtoast">暂无学生信息!</div>`)
+                return 
+            }
+            let listDom = ``
+            for(let item of stdList){
+                if(item. )
+                let template = `<tr class="stuList-row">
+            <td class="align-center">${item.stuNo}</td>
+            <td class="align-center">${item.name}</td>
+            <td class="align-center">${item.sex}</td>
+            <td class="align-center">${item.age}</td>
+            <td class="align-center">${item.college}</td>
+            <td>${item.major}</td>
+            <td>
+                <div class="line-row">
+                    企业:${item.corpName?item.corpName:"暂无"}
+                </div>
+                <div class="line-row">
+                    岗位:${item.corpPosition?item.corpPosition:"暂无"}
+                </div>
+            </td>
+            <td class="align-center">
+            ${item.corpTeacherNo?item.corpTeacherNo:"暂无"}
+            </td>
+            <td>
+                <div class="line-row">
+                    Q Q:${item.qq?item.qq:"暂无"}
+                </div>
+                <div class="line-row">
+                    电话:${item.phone?item.phone:"暂无"}
+                </div>
+                <div class="line-row">
+                    微信:${item.wechat?item.wechat:"暂无"}
+                </div>
+            </td>
+            <td class="align-center">
+                    <button class="check ${item.reportFilledFlag===1||item.reportFilledFlag===0?"uncheck-btn":"check-report"}" data-id="${item.stuNo}">评价</button>
+                </td>
+                <td class="align-center">
+                    <button class="check ${item.identifyFilledFlag===1||item.identifyFilledFlag===0?"uncheck-btn":"check-decision"}" data-id="${item.stuNo}">评价</button>
+                </td>
+        </tr>`
+            listDom+=template
+            }
+            $('tbody').html(listDom)
+        }
+        $(".filter-radio").on("click",function(){
+            let fliterIndex = $('.filter-radio').index(this)
+            if(fliterIndex === 0){
+                
+                
+            }else if(fliterIndex === 1){
+
+            }else if(fliterIndex === 2){
+
+            }
+        })
+
+
+
+
+
+
 
         $('body').delegate(".uncheck-btn","click",function(){
             alert("学生还未填写,无法评价!")
