@@ -52,23 +52,33 @@ $(()=>{
             // console.log(temp_time)
             // console.log(stuinfo)
             //实习单位指导教师评语
-            corpTeacherOpinion.value = stuinfo.corpTeacherOpinion
+            // corpTeacherOpinion.value = stuinfo.corpTeacherOpinion
+            $('#corpTea-comment').text(stuinfo.corpTeacherOpinion?stuinfo.corpTeacherOpinion:"暂无");
             //实习单位指导教师实习成绩
             corpTeacherGrade.value = stuinfo.corpTeacherGrade?stuinfo.corpTeacherGrade:"优秀"
+
             //实习单位指导教师实习成绩时间
             CTODate.value = stuinfo.ctodate?stuinfo.ctodate:null
             //实习单位审核意见
-            corpOpinion.value = stuinfo.corpOpinion
+            // corpOpinion.value = stuinfo.corpOpinion
+            $("#corp-comment").text(stuinfo.corpOpinion?stuinfo.corpOpinion:"暂无");
             //实习单位审核意见时间
             CODate.value = stuinfo.codate?stuinfo.codate:null
+
+
             //所在学院指导老师成绩评定
             teacherGrade.value = stuinfo.teacherGrade
             //所在学院指导老师成绩评定时间
             TGDate.value = stuinfo.tgdate?stuinfo.tgdate:null
+
+
+            
             //综合实习成绩评定
             // comprehsvGrade.value = stuinfo.comprehsvGrade
             // console.log(comprehsvGrade)
             comprehsvGrade.innerHTML = stuinfo.comprehsvGrade?stuinfo.comprehsvGrade:"暂无成绩"
+
+
             //综合实习成绩评定时间
             CGDate.innerHTML = stuinfo.cgdate?stuinfo.cgdate:"暂无"
             // CGDate.value = stuinfo.cgdate?stuinfo.cgdate:null
@@ -83,16 +93,21 @@ $(()=>{
     $(".submit").on("click",function(){
         let options = {
             stuNo:stuinfo.stuNo,
-            corpTeacherOpinion:corpTeacherOpinion.value,
+
+            //-------没必要提交了-------------
+            // corpTeacherOpinion:corpTeacherOpinion.value,
+
             corpTeacherGrade:corpTeacherGrade.value,
             // CTODate:CTODate.value,
-            corpOpinion:corpOpinion.value,
+            // corpOpinion:corpOpinion.value,
             // CODate:CODate.value,
             teacherGrade:teacherGrade.value,
             // TGDate:TGDate.value,
             comprehsvGrade:comprehsvGrade.value,
             // CGDate:CGDate.value,
-            collegePrincipalOpinion:collegePrincipalOpinion.value,
+
+            // collegePrincipalOpinion:collegePrincipalOpinion.value,
+
             // CPODate:CPODate.value,
             id:stuinfo.id
         }
