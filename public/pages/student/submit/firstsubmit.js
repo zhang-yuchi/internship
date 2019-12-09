@@ -13,7 +13,10 @@ window.onload = ()=>{
                 // console.log(data)
                 const msg = data.data
                 // console.log(msg)
-                gmt_start.value = msg.gmtStart
+                var firtime = msg.gmtStart.split(' - ')[0]
+                var lasttime = msg.gmtStart.split(' - ')[1]
+                firtimeinput.value = firtime?firtime:""
+                lasttimeinput.value = lasttime?lasttime:""
                 starttime.value = msg.stage1GuideDate
                 method.value = msg.stage1GuideWay
                 summary.value = msg.stage1Summary

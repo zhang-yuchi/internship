@@ -14,7 +14,10 @@ window.onload = ()=>{
             success:(data)=>{
                 const msg = data.data
                 // console.log(msg)
-                gmt_end.value = msg.gmtEnd
+                var firtime = msg.gmtEnd.split(' - ')[0]
+                var lasttime = msg.gmtEnd.split(' - ')[1]
+                firtimeinput.value = firtime?firtime:""
+                lasttimeinput.value = lasttime?lasttime:""
                 starttime.value = msg.stage2GuideDate
                 method.value = msg.stage2GuideWay
                 summary.value = msg.stage2Summary
@@ -55,7 +58,8 @@ window.onload = ()=>{
                     let stage2GuideDate  = starttime.value ;
                     let stage2GuideWay  = method.value ;
                     // let gmtStart = 
-                    let gmtEnd = gmt_end.value?gmt_end.value:"";
+                    let gmtEnd = firtimeinput+" - "+lasttimeinput;
+
                     // console.log(summary.value.length)
                     if(summary.value.length>1050){
                         alert("字数超过限制,请更改后提交!")
