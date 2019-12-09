@@ -58,12 +58,14 @@ $(()=>{
             corpTeacherGrade.value = stuinfo.corpTeacherGrade?stuinfo.corpTeacherGrade:"优秀"
 
             //实习单位指导教师实习成绩时间
-            CTODate.value = stuinfo.ctodate?stuinfo.ctodate:null
+            // CTODate.value = stuinfo.ctodate?stuinfo.ctodate:null
+            $("#CTODate").text(stuinfo.ctodate?stuinfo.ctodate:"暂无");
             //实习单位审核意见
             // corpOpinion.value = stuinfo.corpOpinion
             $("#corp-comment").text(stuinfo.corpOpinion?stuinfo.corpOpinion:"暂无");
             //实习单位审核意见时间
-            CODate.value = stuinfo.codate?stuinfo.codate:null
+            // CODate.value = stuinfo.codate?stuinfo.codate:null
+            $("#CODate").text(stuinfo.codate?stuinfo.codate:"暂无")
 
 
             //所在学院指导老师成绩评定
@@ -112,12 +114,9 @@ $(()=>{
             id:stuinfo.id
         }
         // console.log(CTODate.value)
-        if(CTODate.value){
-            options.CTODate = CTODate.value
-        }
-        if(CODate.value){
-            options.CODate = CODate.value
-        }
+        // if(CODate.value){
+        //     options.CODate = CODate.value
+        // }
         if(TGDate.value){
             options.TGDate = TGDate.value
         }
