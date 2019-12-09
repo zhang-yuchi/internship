@@ -23,10 +23,24 @@ $(() => {
         success: function (data) {
             std = data.data
             // console.log(std)
-            let stdTemplate = ` <div class="title">学生信息</div>
+            let stdTemplate = ` <div class="title">学生信息<span class='changedetails'>修改信息</span></div>
+            <div class="changecontent">
+                <div class="changetitle">电话</div>
+                <input type="text" placeholder="电话" name="selfphone" id="selfphone" value="${std.phone}"/>
+                <div class="changetitle">微信</div>
+                <input type="text" placeholder="微信" name="selfwechat" id="selfwechat" value="${std.wechat}"/>
+                <div class="changetitle">QQ</div>
+                <input type="text" placeholder="QQ" name="selfqq" id="selfqq" value="${std.qq}"/>
+                <div class="changetitle">年龄</div>
+                <input type="text" placeholder="年龄" name="selfage" id="selfage" value="${std.age}"/>
+                <div class="changetitle">校外导师工号</div>
+                <input type="text" placeholder="校外导师工号" name="selftno" id="selftno" value="${std.corpTeacherNo}" />
+                <button class="details-btn">修改</button>
+            </div>
             <div class="text"><span>姓名</span>${std.name}</div>
             <div class="text"><span>学号</span>${std.stuNo}</div>
             <div class="text"><span>微信</span>${std.wechat?std.wechat:"暂无"}</div>
+            <div class="text"><span>年龄</span>${std.age?std.age:"暂无"}</div>
             <div class="text"><span>qq</span>${std.qq?std.qq:"暂无"}</div>
             <div class="text"><span>电话</span>${std.phone?std.phone:"暂无"}</div>
             <div class="text"><span>专业</span>${std.major}</div>
@@ -80,15 +94,8 @@ $(() => {
                     </div>`
                         $(".teacher-info").html(selectTemplate)
                     })
-
-
                 }
-
-
             })
-
-
-
 
         },
         error: function (err) {
@@ -121,7 +128,7 @@ $(() => {
         ajaxByPost('/student/student/position', {
             position: position.value
         }, function (data) {
-            alert("绑定成功!请重新登录后查看绑定结果")
+            alert("绑定成功!")
             window.location.reload()
         })
     })
@@ -134,6 +141,7 @@ $(() => {
         }
         ajaxByPost('/student/student/password',options,function(data){
             // alert("修改成功")
+            // console.log(std)
             console.log(data)
             if(data.status===-1){
                 alert(data.message)
@@ -144,6 +152,36 @@ $(() => {
             // window.location.reload()
         })
         
+    })
+    //修改学生信息
+    $('body').delegate('.changedetails','click',function(){
+        // console.log(111)
+        var display = $('.changecontent').css('display')
+        // console.log(display)
+        if(display==="none"){
+            $('.changecontent').css({
+                display:"flex"
+            })
+        }else{
+            $('.changecontent').css({
+                display:"none"
+            })
+        }
+    })
+    $('body').delegate('.details-btn','click',function(){
+        var options = {}
+
+        // console.log(std)
+        options.phone = selfphone.value
+        options.wechat = selfwechat.value
+        options.qq = selfqq.value
+        options.age = selfage.value
+        options.corpTeacherNo = selftno.value
+        console.log(options)
+        ajaxByPost('/student/selfInfo',options,function(data){
+            alert("修改成功")
+            window.location.reload()
+        })
     })
     //--------------进入企业绑定页面-----------------
     $('.bind-btn').on("click", function () {

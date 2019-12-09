@@ -23,9 +23,9 @@ $(()=>{
         methods:{
             submit(){
                 // console.log(111)
-                console.log(this.form)
+                
                 let option = this.form
-                console.log(option)
+                
                 if(!this.form.corpName){
                     alert("请输入企业名称!")
                     return
@@ -39,11 +39,14 @@ $(()=>{
                     return
                 }
                 if(id){
+                    // console.log(id)
                     option.id = id
                 }
+                console.log(option)
                 ajaxByPost('/student/student/corp',option,function(){
-                    alert("提交成功!请重新登录后查看绑定结果")
-                    window.location.href = "/student"
+                    alert("提交成功!")
+                    // window.location.href = "/student"
+                    window.location.reload()
                 })
             },
             btnreturn(){
@@ -53,7 +56,10 @@ $(()=>{
     })
     window.app = app
     ajaxByGet('/student/student/corp',function(data){
-        id = data.id
+        if(!data.data.isCorpChecked){
+            alert("该企业未核准!")
+        }
+        id = data.data.id
         // console.log(data)
         let info = data.data
         app.form.corpName = info.corpName
@@ -71,21 +77,6 @@ $(()=>{
         app.form.startBusiness = info.startBusiness
         app.form.type = info.type
 
-
-        // corpName:"",//
-        //         address:"",//
-        //         approvalDate:"",//
-        //         businessScope:"",//
-        //         createDate:"",//
-        //         creditCode:"",//
-        //         endBusiness:"",//
-        //         legalPerson:"",//
-        //         regAuthority:"",//
-        //         regCode:"",//
-        //         regStatus:"",//
-        //         registerCapita:"",//
-        //         startBusiness:"",//
-        //         type:""//
 
     })
 })
