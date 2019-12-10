@@ -57,8 +57,8 @@ window.onload = ()=>{
                     let stage1GuideDate  = starttime.value ;
                     // console.log(typeof stage1GuideDate)
                     let stage1GuideWay  = method.value ;
-                    let gmtStart = gmt_start.value;
                     
+                    let gmtStart = firtimeinput.value+" - "+lasttimeinput.value;
                     if(summary.value.length>1050){
                         alert("字数超过限制,请更改后提交!")
                         return
