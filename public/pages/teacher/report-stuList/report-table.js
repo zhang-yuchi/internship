@@ -14,7 +14,6 @@ $(() => {
                 return
             }
             let template = ``
-            console.log(data)
             for (let item of students) {
                 let std = `<tr class="stuList-row">
                 <td>
@@ -40,7 +39,7 @@ $(() => {
                 
             <td class=${item.reportFilledFlag===3?"checked":item.reportFilledFlag===2?"checking":"unchecked"}>
                     
-            <span class="iconfont ${item.reportFilledFlag===3?"icon-dui3":"icon-cuo2"}"></span>${item.reportFilledFlag===3?"已填写完":item.reportFilledFlag===2?"填写中":"未填写!"}
+            <span class="iconfont ${item.reportFilledFlag===3?"icon-dui3":item.reportFilledFlag===2?"icon-circle":"icon-cuo2"}"></span>${item.reportFilledFlag===3?"已填写完":item.reportFilledFlag===2?"一阶段已填":"未填写!"}
         </td>
 
             <td class=${item.reportFlag===2?"checked":item.reportFlag===0?"unchecked":"checking"}>
@@ -101,7 +100,7 @@ $(() => {
 
                 <td class=${item.reportFilledFlag===3?"checked":item.reportFilledFlag===2?"checking":"unchecked"}>
                     
-            <span class="iconfont ${item.reportFilledFlag===3?"icon-dui3":"icon-cuo2"}"></span>${item.reportFilledFlag===3?"已填写完":item.reportFilledFlag===2?"填写中":"未填写!"}
+                <span class="iconfont ${item.reportFilledFlag===3?"icon-dui3":item.reportFilledFlag===2?"icon-circle":"icon-cuo2"}"></span>${item.reportFilledFlag===3?"已填写完":item.reportFilledFlag===2?"一阶段已填":"未填写!"}
         </td>
 
                 <td class=${item.reportFlag===2?"checked":item.reportFlag===0?"unchecked":"checking"}>
@@ -173,7 +172,7 @@ $(() => {
                 </td>
                 <td class=${item.reportFilledFlag===3?"checked":item.reportFilledFlag===2?"checking":"unchecked"}>
                     
-            <span class="iconfont ${item.reportFilledFlag===3?"icon-dui3":"icon-cuo2"}"></span>${item.reportFilledFlag===3?"已填写完":item.reportFilledFlag===2?"填写中":"未填写!"}
+                <span class="iconfont ${item.reportFilledFlag===3?"icon-dui3":item.reportFilledFlag===2?"icon-circle":"icon-cuo2"}"></span>${item.reportFilledFlag===3?"已填写完":item.reportFilledFlag===2?"一阶段已填":"未填写!"}
         </td>
                 
             <td class=${item.reportFlag===2?"checked":item.reportFlag===0?"unchecked":"checking"}>
@@ -228,7 +227,7 @@ $(() => {
 
                 <td class=${item.reportFilledFlag===3?"checked":item.reportFilledFlag===2?"checking":"unchecked"}>
                     
-            <span class="iconfont ${item.reportFilledFlag===3?"icon-dui3":"icon-cuo2"}"></span>${item.reportFilledFlag===3?"已填写完":item.reportFilledFlag===2?"填写中":"未填写!"}
+                <span class="iconfont ${item.reportFilledFlag===3?"icon-dui3":item.reportFilledFlag===2?"icon-circle":"icon-cuo2"}"></span>${item.reportFilledFlag===3?"已填写完":item.reportFilledFlag===2?"一阶段已填":"未填写!"}
         </td>
 
                 <td class=${item.reportFlag===2?"checked":item.reportFlag===0?"unchecked":"checking"}>
@@ -268,7 +267,7 @@ $(() => {
     
                     <td class=${item.reportFilledFlag===3?"checked":item.reportFilledFlag===2?"checking":"unchecked"}>
                         
-                <span class="iconfont ${item.reportFilledFlag===3?"icon-dui3":"icon-cuo2"}"></span>${item.reportFilledFlag===3?"已填写完":item.reportFilledFlag===2?"填写中":"未填写!"}
+                    <span class="iconfont ${item.reportFilledFlag===3?"icon-dui3":item.reportFilledFlag===2?"icon-circle":"icon-cuo2"}"></span>${item.reportFilledFlag===3?"已填写完":item.reportFilledFlag===2?"一阶段已填":"未填写!"}
             </td>
     
                     <td class=${item.reportFlag===2?"checked":item.reportFlag===0?"unchecked":"checking"}>
@@ -311,7 +310,7 @@ $(() => {
         
                         <td class=${item.reportFilledFlag===3?"checked":item.reportFilledFlag===2?"checking":"unchecked"}>
                             
-                    <span class="iconfont ${item.reportFilledFlag===3?"icon-dui3":"icon-cuo2"}"></span>${item.reportFilledFlag===3?"已填写完":item.reportFilledFlag===2?"填写中":"未填写!"}
+                        <span class="iconfont ${item.reportFilledFlag===3?"icon-dui3":item.reportFilledFlag===2?"icon-circle":"icon-cuo2"}"></span>${item.reportFilledFlag===3?"已填写完":item.reportFilledFlag===2?"一阶段已填":"未填写!"}
                 </td>
         
                         <td class=${item.reportFlag===2?"checked":item.reportFlag===0?"unchecked":"checking"}>
