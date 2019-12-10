@@ -22,7 +22,7 @@ $(() => {
         },
         success: function (data) {
             std = data.data
-            // console.log(std)
+            console.log(std)
             let stdTemplate = ` <div class="title">学生信息<span class='changedetails'>修改信息</span></div>
             <div class="changecontent">
                 <div class="changetitle">电话</div>
@@ -47,6 +47,9 @@ $(() => {
             <div class="text"><span>实习岗位</span>${std.corpPosition?std.corpPosition:"暂无"}</div>
             <div class="text"><span>实习企业</span>${std.corpName?std.corpName:"暂无"}</div>
             <div class="text"><span>身份证号</span>${std.idCard}</div>
+            <div class="text gmtstart"><span>实习开始时间</span>${std.identifyFilledFlag==3&&std.reportFilledFlag==3?"<input id='gmtStart' onclick='WdatePicker()'/>":"<span class='show-text'>未到填写时间</span></div>"}
+            <div class="text gmtend"><span>实习结束时间</span>${std.identifyFilledFlag==3&&std.reportFilledFlag==3?"<input id='gmtEnd' onclick='WdatePicker()'/>":"<span class='show-text'>未到填写时间</span></div>"}
+            ${std.identifyFilledFlag==3&&std.reportFilledFlag==3?"<button class='date-submit' id='b1'>提交</button>":""}
             <div class="text"><span>修改密码</span><br><input type="password" name="oldpsw" placeholder="旧密码" id="oldpsw"><br><input type="password" name="newpsw" placeholder="新密码" id="newpsw"><button class="psw-btn">修改</button></div>
             <div class="text">${std.college}</div>
             <div class="text"></div>
@@ -107,7 +110,7 @@ $(() => {
 
 
     $('body').delegate(".select-btn", "click", () => {
-        console.log(selectTeacher.value)
+        // console.log(selectTeacher.value)
         let options = {}
         options.tNo = selectTeacher.value
         ajaxByPost('/student/teacher', options, function (data) {
@@ -133,44 +136,44 @@ $(() => {
         })
     })
     //--------------修改密码------------------------
-    $("body").delegate(".psw-btn","click",function(){
+
+    $("body").delegate(".psw-btn", "click", function () {
         // console.log(111)
         let options = {
-            newPassword:newpsw.value,
-            oldPassword:oldpsw.value
+            newPassword: newpsw.value,
+            oldPassword: oldpsw.value
         }
-        ajaxByPost('/student/student/password',options,function(data){
+        ajaxByPost('/student/student/password', options, function (data) {
             // alert("修改成功")
             // console.log(std)
             console.log(data)
-            if(data.status===-1){
+            if (data.status === -1) {
                 alert(data.message)
-            }else{
+            } else {
                 alert("修改成功")
                 window.location.reload()
             }
             // window.location.reload()
         })
-        
+
     })
     //修改学生信息
-    $('body').delegate('.changedetails','click',function(){
+    $('body').delegate('.changedetails', 'click', function () {
         // console.log(111)
         var display = $('.changecontent').css('display')
         // console.log(display)
-        if(display==="none"){
+        if (display === "none") {
             $('.changecontent').css({
-                display:"flex"
+                display: "flex"
             })
-        }else{
+        } else {
             $('.changecontent').css({
-                display:"none"
+                display: "none"
             })
         }
     })
-    $('body').delegate('.details-btn','click',function(){
+    $('body').delegate('.details-btn', 'click', function () {
         var options = {}
-
         // console.log(std)
         options.phone = selfphone.value
         options.wechat = selfwechat.value
@@ -178,7 +181,7 @@ $(() => {
         options.age = selfage.value
         options.corpTeacherNo = selftno.value
         console.log(options)
-        ajaxByPost('/student/selfInfo',options,function(data){
+        ajaxByPost('/student/selfInfo', options, function (data) {
             alert("修改成功")
             window.location.reload()
         })
@@ -188,5 +191,18 @@ $(() => {
         // console.log(111)
         window.location.href = "/student/corp-bind"
     })
+
+    //--------------提交实习时间---------------------
+    $('body').delegate(".date-submit", "click", function () {
+        // console.log(111)
+        var option = {}
+        option.gmtEnd = gmtStart.value
+        option.gmtStart = gmtEnd.value
+        ajaxByPost('/student/student/date',option, function (data) {
+            alert("修改成功!")
+            window.location.reload()
+        })
+    })
+
 
 })

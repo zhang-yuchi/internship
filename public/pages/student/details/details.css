@@ -198,3 +198,18 @@ input[name="pswchange"]{
 .details-window{
     position: relative;
 }
+.show-text{
+    color: #333 !important;
+}
+.date-submit{
+    border: none;
+    padding: 3px 5px;
+    color: white;
+    border-radius: 3px;
+    background-color: #07C160;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.date-submit:hover{
+    background-color: #06984c;
+}

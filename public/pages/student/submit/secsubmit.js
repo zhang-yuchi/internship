@@ -14,11 +14,14 @@ window.onload = ()=>{
             success:(data)=>{
                 const msg = data.data
                 // console.log(msg)
-                var firtime = msg.gmtEnd.split(' - ')[0]
-                var lasttime = msg.gmtEnd.split(' - ')[1]
+                if(msg.stage2GuideDate){
+                    var firtime = msg.stage2GuideDate.split(' - ')[0]
+                    var lasttime = msg.stage2GuideDate.split(' - ')[1]
+                }
+                
                 firtimeinput.value = firtime?firtime:""
                 lasttimeinput.value = lasttime?lasttime:""
-                starttime.value = msg.stage2GuideDate
+                starttime.value = msg.stage2Date
                 method.value = msg.stage2GuideWay
                 summary.value = msg.stage2Summary
 
@@ -47,15 +50,19 @@ window.onload = ()=>{
             request.setRequestHeader("Authorization", sessionStorage.getItem("userinfo"));
         },
         success(data){
-            console.log(data.data.isReportStage2Open)
+            // console.log(data.data.isReportStage2Open)
             if(data.data.isReportStage2Open){
                 $('.showToast').css({
                     display:"none"
                 })
                 
                 $(".submit").on("click",()=>{
+                    if(!starttime.value){
+                        alert("填写时间为必填项!")
+                        return
+                    }
                     let stage2_summary = summary.value
-                    let stage2GuideDate  = starttime.value ;
+                    let stage2Date   = starttime.value ;
                     let stage2GuideWay  = method.value ;
                     // let gmtStart = 
                     let gmtEnd = firtimeinput.value+" - "+lasttimeinput.value;
@@ -70,9 +77,10 @@ window.onload = ()=>{
                         url:`${config.ip}:${config.port}/student/report/stage2`,
                         dataType:"json",
                         data:{
-                            gmtEnd:gmtEnd,
+                            stage2Date :stage2Date ,
+                            stage2GuideDate:gmtEnd,
                             stage2Summary:stage2_summary,
-                            stage2GuideDate:stage2GuideDate,
+                            
                             stage2GuideWay:stage2GuideWay
                         },
                         beforeSend: function(request) {
