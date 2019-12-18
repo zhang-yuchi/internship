@@ -23,7 +23,7 @@ $(() => {
         success: function (data) {
             std = data.data
             console.log(std)
-            let stdTemplate = ` <div class="title">学生信息<span class='changedetails'>修改信息</span></div>
+            let stdTemplate = ` <div class="title">学生信息<span class='changedetails'><span class='iconfont icon-shang down' ></span>修改信息</span></div>
             <div class="changecontent">
                 <div class="changetitle">电话</div>
                 <input type="text" placeholder="电话" name="selfphone" id="selfphone" value="${std.phone}"/>
@@ -160,6 +160,11 @@ $(() => {
     //修改学生信息
     $('body').delegate('.changedetails', 'click', function () {
         // console.log(111)
+        if($('.icon-shang').hasClass('down')){
+            $('.icon-shang').removeClass('down').addClass('up')
+        }else{
+            $('.icon-shang').removeClass('up').addClass('down')
+        }
         var display = $('.changecontent').css('display')
         // console.log(display)
         if (display === "none") {
